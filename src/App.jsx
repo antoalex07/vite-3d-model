@@ -2,17 +2,17 @@ import { Canvas } from '@react-three/fiber'
 import './App.css'
 import { Suspense } from 'react'
 import { Environment, OrbitControls } from '@react-three/drei'
-import Cube from "../public/Cube"
+import Final from "../public/Final"
 
 function App() {
 
   return (
     <>
       <Canvas>
-        <ambientLight intensity={1}/>
+        <ambientLight intensity={0}/>
         <OrbitControls/>
         <Suspense>
-          <Cube/>
+          <Final/>
         </Suspense>
         <Environment preset='sunset'/>
       </Canvas>
@@ -21,3 +21,14 @@ function App() {
 }
 
 export default App
+
+// apartment: string;
+//     city: string;
+//     dawn: string;
+//     forest: string;
+//     lobby: string;
+//     night: string;
+//     park: string;
+//     studio: string;
+//     sunset: string;
+//     warehouse: string;
