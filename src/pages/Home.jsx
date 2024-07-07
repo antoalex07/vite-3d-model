@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import Final from "../../public/Final";
 import { Canvas } from '@react-three/fiber';
 import { Environment, OrbitControls } from '@react-three/drei';
+import RotatingModel from '../components/RotatingModel';
 
 const Home = () => {
   return (
@@ -9,7 +10,7 @@ const Home = () => {
       <h1 style={{
         fontFamily: "Black Ops One, sans-seriff",
         position: "relative",
-        marginTop: "25rem",
+        paddingTop: "60rem",
         fontSize: "7rem"
       }}>
         LOOK BEYOND LIMITS</h1>
@@ -60,6 +61,7 @@ const Home = () => {
               <li>Rotation Restrictions: Enabled(360 degreees horizontal only)</li>
               <li>Lighting: Ambient light with low intensity</li>
               <li>Environment: Sunset preset</li>
+              <li>The user can drag his mouse and move the 3d model so as to view it as he pleases but only in a horizontal path </li>
             </ul>
           </div>
         </div>
@@ -86,15 +88,8 @@ const Home = () => {
           }}>
             <Canvas>
               <ambientLight intensity={1}/>
-              <OrbitControls 
-                  enableZoom={false}
-                  minPolarAngle={Math.PI / 2}
-                  maxPolarAngle={Math.PI / 2}
-                  minAzimuthAngle={-Infinity}
-                  maxAzimuthAngle={Infinity}
-              />
               <Suspense fallback={null}>
-                <Final/>
+                <RotatingModel/>
               </Suspense>
               <Environment preset='sunset' />
             </Canvas>
@@ -108,9 +103,10 @@ const Home = () => {
             <h3>Model Configuration Details:</h3>
             <ul>
               <li>Zoom: Disabled</li>
-              <li>Rotation Restrictions: Enabled(360 degreees horizontal only)</li>
+              <li>Rotation Restrictions: Enabled</li>
               <li>Lighting: Ambient light with low intensity</li>
               <li>Environment: Sunset preset</li>
+              <li>The model here acts like a video and is coded to rotate in a given speed user cannot drag on it or anything</li>
             </ul>
           </div>
         </div>
