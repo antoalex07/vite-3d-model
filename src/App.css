@@ -1,3 +1,44 @@
+body {
+  background-image: linear-gradient(to bottom, #ffffff, #ffddfa, #ffb5cf, #ff9380, #eb8b12);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+/* Header */
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  /* background-color: #ffffff; */
+}
+
+.header .logo {
+  background-image: url("./assets/storeo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 200px;
+  height: 70px;
+}
+
+/* Home Page */
+
+.home {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  /* overflow: hidden; */
+}
+
 canvas {
   height: 100vh !important;
 }
