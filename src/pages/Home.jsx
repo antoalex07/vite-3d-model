@@ -1,0 +1,122 @@
+import React, { Suspense } from 'react';
+import Final from "../../public/Final";
+import { Canvas } from '@react-three/fiber';
+import { Environment, OrbitControls } from '@react-three/drei';
+
+const Home = () => {
+  return (
+    <div className='home'>
+      <h1 style={{
+        fontFamily: "Black Ops One, sans-seriff",
+        position: "relative",
+        marginTop: "25rem",
+        fontSize: "7rem"
+      }}>
+        LOOK BEYOND LIMITS</h1>
+
+      <div style={{
+            width: "80vw",
+            borderRadius: "1.875em",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+            textAlign: "center"
+      }}>
+        <h2>CONFIGURATION - I</h2>      
+        <div style={{display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"}}>
+
+          <div style={{
+            position: "relative",
+            width: "60%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>
+            <Canvas>
+              <ambientLight intensity={1}/>
+              <OrbitControls 
+                  enableZoom={false}
+                  minPolarAngle={Math.PI / 2}
+                  maxPolarAngle={Math.PI / 2}
+                  minAzimuthAngle={-Infinity}
+                  maxAzimuthAngle={Infinity}
+              />
+              <Suspense fallback={null}>
+                <Final/>
+              </Suspense>
+              <Environment preset='sunset' />
+            </Canvas>
+          </div>
+          <div style={{
+            width: "35%",
+            padding: "1.25em",
+            textAlign: "left",
+            marginTop: "5em"
+          }}>
+            <h3>Model Configuration Details:</h3>
+            <ul>
+              <li>Zoom: Disabled</li>
+              <li>Rotation Restrictions: Enabled(360 degreees horizontal only)</li>
+              <li>Lighting: Ambient light with low intensity</li>
+              <li>Environment: Sunset preset</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div style={{
+            width: "80vw",
+            borderRadius: "1.875em",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+            textAlign: "center"
+      }}>
+        <h2>CONFIGURATION - II</h2>      
+        <div style={{display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"}}>
+
+          <div style={{
+            position: "relative",
+            width: "60%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>
+            <Canvas>
+              <ambientLight intensity={1}/>
+              <OrbitControls 
+                  enableZoom={false}
+                  minPolarAngle={Math.PI / 2}
+                  maxPolarAngle={Math.PI / 2}
+                  minAzimuthAngle={-Infinity}
+                  maxAzimuthAngle={Infinity}
+              />
+              <Suspense fallback={null}>
+                <Final/>
+              </Suspense>
+              <Environment preset='sunset' />
+            </Canvas>
+          </div>
+          <div style={{
+            width: "35%",
+            padding: "1.25em",
+            textAlign: "left",
+            marginTop: "5em"
+          }}>
+            <h3>Model Configuration Details:</h3>
+            <ul>
+              <li>Zoom: Disabled</li>
+              <li>Rotation Restrictions: Enabled(360 degreees horizontal only)</li>
+              <li>Lighting: Ambient light with low intensity</li>
+              <li>Environment: Sunset preset</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default Home
