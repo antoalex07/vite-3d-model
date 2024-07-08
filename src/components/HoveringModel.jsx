@@ -17,7 +17,7 @@ const HoveringModel = () => {
     useFrame(() => {
         if (modelRef.current) {
           modelRef.current.rotation.y = mousePosition.x * Math.PI * 3;
-          modelRef.current.rotation.x = mousePosition.y * Math.PI * 2; // Adjust the factor to control rotation speed
+          modelRef.current.rotation.x = mousePosition.y * Math.PI / 10; // Adjust the factor to control rotation speed
         }
     });
     
