@@ -11,12 +11,13 @@ const Home = () => {
       <h1 style={{
         fontFamily: "Black Ops One, sans-seriff",
         position: "relative",
-        paddingTop: "60rem",
+        paddingTop: "80rem",
         fontSize: "7rem"
       }}>
         LOOK BEYOND LIMITS</h1>
-
+      
       <div style={{
+            position: "relative",
             width: "80vw",
             borderRadius: "1.875em",
             boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
@@ -92,7 +93,7 @@ const Home = () => {
               <Suspense fallback={null}>
                 <RotatingModel/>
               </Suspense>
-              <Environment preset='sunset' />
+              <Environment preset='city' />
             </Canvas>
           </div>
           <div style={{
@@ -106,7 +107,7 @@ const Home = () => {
               <li>Zoom: Disabled</li>
               <li>Rotation Restrictions: Enabled</li>
               <li>Lighting: Ambient light with low intensity</li>
-              <li>Environment: Sunset preset</li>
+              <li>Environment: City preset</li>
               <li>The model here acts like a video and is coded to rotate in a given speed user cannot drag on it or anything</li>
             </ul>
           </div>
@@ -137,7 +138,7 @@ const Home = () => {
               <Suspense fallback={null}>
                 <HoveringModel/>
               </Suspense>
-              <Environment preset='sunset' />
+              <Environment preset='dawn' />
             </Canvas>
           </div>
           <div style={{
@@ -151,7 +152,7 @@ const Home = () => {
               <li>Zoom: Disabled</li>
               <li>Rotation Restrictions: Disabled</li>
               <li>Lighting: Ambient light with low intensity</li>
-              <li>Environment: Sunset preset</li>
+              <li>Environment: Dawn preset</li>
               <li>In this Configuration you can hover your mouse through the model and 
                 it will move accordingly no need for any dragging. 
                 The speed in which the rotation occurs can be changed and further modifications are possible </li>
