@@ -2,6 +2,7 @@ import './App.css'
 import Header from './components/Header'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
+import Sample from './pages/Sample'
 
 function App() {
 
@@ -10,6 +11,7 @@ function App() {
       {/* <Header/> */}
       <Routes>
         <Route path='/' element={<Home/>} />
+        <Route path='/saple' element={<Sample/>} />
       </Routes>
     </div>  
   )
