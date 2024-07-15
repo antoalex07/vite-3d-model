@@ -1,9 +1,12 @@
 import React, { Suspense } from 'react';
 import Final from "../../public/Final";
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls } from '@react-three/drei';
+import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
 import RotatingModel from '../components/RotatingModel';
 import HoveringModel from '../components/HoveringModel';
+import Floor from '../components/Floor';
+import { Picker } from '../components/Shoe';
+import Shoe from "../components/Shoe"
 
 const Home = () => {
   return (
@@ -11,10 +14,10 @@ const Home = () => {
       <h1 style={{
         fontFamily: "Black Ops One, sans-seriff",
         position: "relative",
-        paddingTop: "80rem",
+        paddingTop: "120rem",
         fontSize: "7rem"
       }}>
-        LOOK BEYOND LIMITS</h1>
+        ...</h1>
       
       <div style={{
             position: "relative",
@@ -138,7 +141,7 @@ const Home = () => {
               <Suspense fallback={null}>
                 <HoveringModel/>
               </Suspense>
-              <Environment preset='dawn' />
+              <Environment preset='lobby' />
             </Canvas>
           </div>
           <div style={{
@@ -156,6 +159,63 @@ const Home = () => {
               <li>In this Configuration you can hover your mouse through the model and 
                 it will move accordingly no need for any dragging. 
                 The speed in which the rotation occurs can be changed and further modifications are possible </li>
+            </ul>
+          </div>
+        </div>
+      </div>  
+      
+      <div style={{
+            position: "relative",
+            width: "80vw",
+            borderRadius: "1.875em",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+            textAlign: "center"
+      }}>
+        <h2>CONFIGURATION - IV</h2>      
+        <div style={{display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between"}}>
+
+          <div style={{
+            position: "relative",
+            width: "60%",
+            height: "100vh",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center"
+          }}>
+            <Picker/>
+            <Canvas concurrent pixelRatio={[1, 1.5]} camera={{ position: [0, 0, 2.75] }}>
+              <ambientLight intensity={0.5}/>
+              <spotLight intensity={0.3} angle={0.1} penumbra={1} position={[5, 25, 20]} />
+              <Suspense fallback={null}>
+                <Shoe/>
+                <Environment files="royal.hdr" />
+                <ContactShadows rotation-x={Math.PI / 2} position={[0, -0.8, 0]} opacity={0.25} width={10} height={10} blur={2} far={1} />  
+              </Suspense>
+              <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
+            </Canvas>
+          </div>
+          <div style={{
+            width: "35%",
+            padding: "1.25em",
+            textAlign: "left",
+            marginTop: "5em"
+          }}>
+            <h3>Model Configuration Details:</h3>
+            <ul>
+              <li>Zoom: Disabled</li>
+              <li>Rotation Restrictions: Enabled(360 degreees horizontal only)</li>
+              <li>Lighting: Ambient light with low intensity, Spot lights </li>
+              <li>Environment: trace backs to a file that uses an image with hdr format as the environment</li>
+              <li>Product Configurator that enables the user to design the Product 
+                with various colors of choice. The color selection now can be chosen from all
+                the hexadecimal options available. This can be limited to the colors of client
+                choice. Also a floating effect is also included in the model </li>
+              <li>Working: Just click a part of the model you want to change the color 
+                then the color palette and the part will be shown make necessary changes 
+                click somwhere other than the model the color palette will be gone
+              </li>
             </ul>
           </div>
         </div>
