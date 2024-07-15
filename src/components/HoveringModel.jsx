@@ -1,32 +1,45 @@
-import React, { useRef, useState } from 'react'
-import Final from '../../public/Final'
-import { useFrame } from '@react-three/fiber';
+import React, { useRef, useState } from 'react';
+import Final from '../../public/Final';
+import { useFrame, useThree } from '@react-three/fiber';
 
 const HoveringModel = () => {
-    
     const modelRef = useRef();
-    const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+    const [hovered, setHovered] = useState(false);
+    const [initialRotation, setInitialRotation] = useState([0, 0, 0]);
+    const { size } = useThree();
 
-    const handleMouseMove = (event) => {
-        setMousePosition({
-          x: (event.clientX / window.innerWidth) * 2 - 1,
-          y: -(event.clientY / window.innerHeight) * 2 + 1,
-        });
-    };
+    const distanceThreshold = 50; // distance from the border where rotation is disabled
 
-    useFrame(() => {
-        if (modelRef.current) {
-          modelRef.current.rotation.y = mousePosition.x * Math.PI * 3;
-          modelRef.current.rotation.x = mousePosition.y * Math.PI / 10; // Adjust the factor to control rotation speed
+    useFrame(({ pointer }) => {
+        if (hovered) {
+            const distanceFromCenterX = Math.abs(pointer.x * size.width - size.width / 2);
+            const distanceFromCenterY = Math.abs(pointer.y * size.height - size.height / 2);
+
+            if (distanceFromCenterX < size.width / 2 - distanceThreshold && distanceFromCenterY < size.height / 2 - distanceThreshold) {
+                modelRef.current.rotation.x = initialRotation[0] + (pointer.y * Math.PI) / 1000;
+                modelRef.current.rotation.y = initialRotation[1] + (pointer.x * Math.PI) * 1.25;
+            }
         }
     });
-    
 
-  return (
-    <mesh ref={modelRef} onPointerMove={handleMouseMove}>
-        <Final/>
-    </mesh>
-  )
-}
+    const handlePointerEnter = () => {
+        setInitialRotation([modelRef.current.rotation.x, modelRef.current.rotation.y, modelRef.current.rotation.z]);
+        setHovered(true);
+    };
 
-export default HoveringModel
+    const handlePointerLeave = () => {
+        setHovered(false);
+    };
+
+    return (
+        <mesh
+            ref={modelRef}
+            onPointerEnter={handlePointerEnter}
+            onPointerLeave={handlePointerLeave}
+        >
+            <Final />
+        </mesh>
+    );
+};
+
+export default HoveringModel;
