@@ -11,14 +11,6 @@ import Shoe from "../components/Shoe"
 const Home = () => {
   return (
     <div className='home'>
-      <h1 style={{
-        fontFamily: "Black Ops One, sans-seriff",
-        position: "relative",
-        paddingTop: "120rem",
-        fontSize: "7rem"
-      }}>
-        ...</h1>
-      
       <div style={{
             position: "relative",
             width: "80vw",
