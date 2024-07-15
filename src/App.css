@@ -1,4 +1,6 @@
-body {
+html, 
+body, 
+#root {
   background-image: linear-gradient(to bottom, #ffffff, #ffddfa, #ffb5cf, #ff9380, #eb8b12);
   background-attachment: fixed;
   background-size: cover;
@@ -41,4 +43,12 @@ body {
 
 canvas {
   height: 100vh !important;
+}
+
+.picker {
+  position: absolute !important;
+  /* top: 74px; */
+  left: 70px;
+  width: 90px !important;
+  height: 90px !important;
 }
