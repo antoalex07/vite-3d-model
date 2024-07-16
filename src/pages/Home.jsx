@@ -4,33 +4,17 @@ import { Canvas } from '@react-three/fiber';
 import { ContactShadows, Environment, OrbitControls } from '@react-three/drei';
 import RotatingModel from '../components/RotatingModel';
 import HoveringModel from '../components/HoveringModel';
-import Floor from '../components/Floor';
 import { Picker } from '../components/Shoe';
 import Shoe from "../components/Shoe"
 
 const Home = () => {
   return (
     <div className='home'>
-      <div style={{
-            position: "relative",
-            width: "80vw",
-            borderRadius: "1.875em",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-            textAlign: "center"
-      }}>
-        <h2>CONFIGURATION - I</h2>      
-        <div style={{display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"}}>
 
-          <div style={{
-            position: "relative",
-            width: "60%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
+      <div className='config'>
+        <h2>CONFIGURATION - I</h2>      
+        <div className="config__container">
+          <div className="model__container">
             <Canvas>
               <ambientLight intensity={1}/>
               <OrbitControls 
@@ -46,12 +30,7 @@ const Home = () => {
               <Environment preset='sunset' />
             </Canvas>
           </div>
-          <div style={{
-            width: "35%",
-            padding: "1.25em",
-            textAlign: "left",
-            marginTop: "5em"
-          }}>
+          <div className="details__container">
             <h3>Model Configuration Details:</h3>
             <ul>
               <li>Zoom: Disabled</li>
@@ -64,25 +43,10 @@ const Home = () => {
         </div>
       </div>
 
-      <div style={{
-            width: "80vw",
-            borderRadius: "1.875em",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-            textAlign: "center"
-      }}>
+      <div className='config'>
         <h2>CONFIGURATION - II</h2>      
-        <div style={{display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"}}>
-
-          <div style={{
-            position: "relative",
-            width: "60%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
+        <div className="config__container">
+          <div className="model__container">
             <Canvas>
               <ambientLight intensity={1}/>
               <Suspense fallback={null}>
@@ -91,12 +55,7 @@ const Home = () => {
               <Environment preset='city' />
             </Canvas>
           </div>
-          <div style={{
-            width: "35%",
-            padding: "1.25em",
-            textAlign: "left",
-            marginTop: "5em"
-          }}>
+          <div className="details__container">
             <h3>Model Configuration Details:</h3>
             <ul>
               <li>Zoom: Disabled</li>
@@ -109,25 +68,10 @@ const Home = () => {
         </div>
       </div>
       
-      <div style={{
-            width: "80vw",
-            borderRadius: "1.875em",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-            textAlign: "center"
-      }}>
+      <div className="config">
         <h2>CONFIGURATION - III</h2>      
-        <div style={{display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"}}>
-
-          <div style={{
-            position: "relative",
-            width: "60%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
+        <div className="config__container">
+          <div className="model__container">
             <Canvas>
               <ambientLight intensity={1}/>
               <Suspense fallback={null}>
@@ -136,12 +80,7 @@ const Home = () => {
               <Environment preset='lobby' />
             </Canvas>
           </div>
-          <div style={{
-            width: "35%",
-            padding: "1.25em",
-            textAlign: "left",
-            marginTop: "5em"
-          }}>
+          <div className="details__container">
             <h3>Model Configuration Details:</h3>
             <ul>
               <li>Zoom: Disabled</li>
@@ -156,26 +95,10 @@ const Home = () => {
         </div>
       </div>  
       
-      <div style={{
-            position: "relative",
-            width: "80vw",
-            borderRadius: "1.875em",
-            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
-            textAlign: "center"
-      }}>
+      <div className='config'>
         <h2>CONFIGURATION - IV</h2>      
-        <div style={{display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-between"}}>
-
-          <div style={{
-            position: "relative",
-            width: "60%",
-            height: "100vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-          }}>
+        <div className="config__container">
+          <div className="model__container">
             <Picker/>
             <Canvas concurrent pixelRatio={[1, 1.5]} camera={{ position: [0, 0, 2.75] }}>
               <ambientLight intensity={0.5}/>
@@ -188,12 +111,7 @@ const Home = () => {
               <OrbitControls minPolarAngle={Math.PI / 2} maxPolarAngle={Math.PI / 2} enableZoom={false} enablePan={false} />
             </Canvas>
           </div>
-          <div style={{
-            width: "35%",
-            padding: "1.25em",
-            textAlign: "left",
-            marginTop: "5em"
-          }}>
+          <div className="details__container">
             <h3>Model Configuration Details:</h3>
             <ul>
               <li>Zoom: Disabled</li>
@@ -212,7 +130,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-
     </div>
   )
 }
