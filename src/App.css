@@ -22,7 +22,6 @@ body,
   top: 0;
   width: 100%;
   z-index: 1000;
-  /* background-color: #ffffff; */
 }
 
 .header .logo {
@@ -34,26 +33,90 @@ body,
   height: 70px;
 }
 
-/* Home Page */
+@media (min-width: 360px) {
+  
+  .config__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 
-.home {
-  position: relative;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  /* overflow: hidden; */
+  canvas {
+    height: 50vh !important;
+  }
+
+  .picker {
+    position: relative;
+    width: 90px !important;
+    height: 90px !important;
+    top: 8em;
+    left: 4em;
+  }
+
+  .heading {
+    font-size: 4rem;
+    position: relative;
+    left: 2em;
+    top: 3.35em
+  }
 }
 
-canvas {
-  height: 100vh !important;
-}
-
-.picker {
-  position: absolute !important;
-  /* top: 74px; */
-  left: 70px;
-  width: 90px !important;
-  height: 90px !important;
+@media (min-width: 1024px) {
+  .home {
+    position: relative;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .config {
+    position: relative;
+    width: 80vw;
+    border-radius: 1.875em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+  
+  .config__container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+  .model__container {
+    position: relative;
+    width: 60%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .details__container {
+    width: 35%;
+    padding: 1.125em;
+    text-align: left;
+    margin-top: 5em;
+  }
+  
+  canvas {
+    height: 100vh !important;
+  }
+  
+  .picker {
+    position: absolute !important;
+    top: 12em;
+    left: 70px;
+    width: 90px !important;
+    height: 90px !important;
+  }
+  
+  .heading {
+    font-size: 4rem;
+    position: relative;
+    left: 4em;
+    padding-bottom: 10em;
+  }
 }
