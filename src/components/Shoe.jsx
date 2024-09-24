@@ -98,18 +98,3 @@ export function Picker() {
 }
 
 useGLTF.preload('/shoe.glb')
-
-
-// style={{
-  // position: "absolute",
-  // top: "43px",
-  // left: "140px",
-  // padding: 0,
-  // margin: "40px",
-  // fontSize: "5em",
-  // lineHeight: "0.7em",
-  // letterSpacing: "-6px"
-  // left: "70px",
-  // top: "60px",
-  // position: "relative"
-// }}
