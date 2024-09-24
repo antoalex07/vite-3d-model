@@ -100,7 +100,7 @@ const Home = () => {
         <div className="config__container">
           <div className="model__container">
             <Picker/>
-            <Canvas concurrent pixelRatio={[1, 1.5]} camera={{ position: [0, 0, 2.75] }}>
+            <Canvas camera={{ position: [0, 0, 2.75] }}>
               <ambientLight intensity={0.5}/>
               <spotLight intensity={0.3} angle={0.1} penumbra={1} position={[5, 25, 20]} />
               <Suspense fallback={null}>
